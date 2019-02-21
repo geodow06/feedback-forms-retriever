@@ -2,7 +2,7 @@ package feedbackformsretriever.persistence.domain;
 
 import javax.validation.constraints.Size;
 
-public class Account {
+public class SentAccount {
 	
 	private Long accountID;
 	private Long cohortID;
@@ -13,11 +13,11 @@ public class Account {
 	private String password;
 	private boolean flagged;
 	
-	public Account() {
+	public SentAccount() {
 		
 	}
 	
-	public Account(Long cohortID, boolean admin, String firstName, String lastName, String email, String password, boolean flagged) {
+	public SentAccount(Long cohortID, boolean admin, String firstName, String lastName, String email, String password, boolean flagged) {
 		this.cohortID = cohortID;
 		this.admin = admin;
 		this.firstName = firstName;
