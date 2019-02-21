@@ -1,6 +1,5 @@
 package feedbackformsretriever.persistence.domain;
 
-import javax.validation.constraints.Size;
 
 public class SentAccount {
 	
