@@ -42,12 +42,5 @@ public class SentAccountRest {
     public SentAccount getAccountByEmail(@PathVariable String email) {
     	return repo.findByEmail(email);
     }
-	
-	
-
-	@GetMapping("/test")
-	public String test() {
-		return "end points work";
-	}
 
 }
