@@ -16,6 +16,7 @@ import com.mongodb.DBObject;
 import org.bson.types.ObjectId;
 
 import feedbackformsretriever.persistence.domain.SentAccount;
+import feedbackformsretriever.persistence.domain.SentFeedbackForm;
 import feedbackformsretriever.persistence.repository.MongoAccountRepo;
 
 @CrossOrigin
@@ -36,6 +37,11 @@ public class SentAccountRest {
 	public Optional<SentAccount> findDocumentById(@PathVariable String id) {
 	    return repo.findById(id);
 	}
+	
+    @GetMapping("${path.getAccountByEmail}")
+    public SentAccount getAccountByEmail(@PathVariable String email) {
+    	return repo.findByEmail(email);
+    }
 	
 	
 
