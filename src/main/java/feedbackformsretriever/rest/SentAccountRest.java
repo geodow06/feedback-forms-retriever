@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +35,7 @@ public class SentAccountRest {
 	
 	
 	@GetMapping("${path.getAccountById}")
-	public Optional<SentAccount> findDocumentById(@PathVariable String id) {
+	public Optional<SentAccount> findAccountByID(@PathVariable String id) {
 	    return repo.findById(id);
 	}
 	
@@ -42,12 +43,6 @@ public class SentAccountRest {
     public SentAccount getAccountByEmail(@PathVariable String email) {
     	return repo.findByEmail(email);
     }
-	
-	
-
-	@GetMapping("/test")
-	public String test() {
-		return "end points work";
-	}
+   
 
 }

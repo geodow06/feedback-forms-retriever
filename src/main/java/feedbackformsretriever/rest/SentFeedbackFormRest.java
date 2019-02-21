@@ -31,12 +31,5 @@ public class SentFeedbackFormRest {
     public Optional<SentFeedbackForm> getFeedbackFormByID(@PathVariable String feedbackID) {
     	return repo.findById(feedbackID);
     }
-	
-
-	@GetMapping("/test")
-	public String test() {
-		return "end points work";
-	}
-
 
 }
