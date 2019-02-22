@@ -21,13 +21,18 @@ public class SentCohortRest {
 	private MongoCohortRepo repo;
 	
 	@GetMapping("${path.getCohortbyId}")
-	public Optional<SentCohort> findCohortByID(@PathVariable String id) {
-	    return repo.findById(id);
+	public Optional<SentCohort> findCohortByID(@PathVariable Long id) {
+	    return repo.findByCohortId(id);
 	}
 
     @GetMapping("${path.getCohorts}")
     public Collection<SentCohort> getAllCohorts() {
         return repo.findAll();
     }
+    
+
+
+    
+    
 
 }
