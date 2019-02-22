@@ -1,5 +1,6 @@
 package feedbackformsretriever.persistence.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -9,7 +10,7 @@ import feedbackformsretriever.persistence.domain.SentAccount;
 @Repository
 public interface MongoAccountRepo  extends MongoRepository<SentAccount, String>{
 	
-    public Optional <SentAccount> findByCohortID(Long id);
+    public List<SentAccount> findAllByCohortID(Long id);
 
     public Optional <SentAccount> findByAccountID(Long id);
     

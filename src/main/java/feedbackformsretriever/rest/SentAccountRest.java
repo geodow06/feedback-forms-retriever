@@ -41,8 +41,8 @@ public class SentAccountRest {
 	}
 	
 	@GetMapping("${path.getByCohortId}")
-	public Optional<SentAccount> findAccountByCohortId(@PathVariable Long id) {
-		return repo.findByCohortID(id);
+	public List<SentAccount> findAccountByCohortId(@PathVariable Long id) {
+		return repo.findAllByCohortID(id);
 	}
 	
     @GetMapping("${path.getAccountByEmail}")
