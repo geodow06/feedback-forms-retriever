@@ -17,6 +17,7 @@ import com.mongodb.DBObject;
 import org.bson.types.ObjectId;
 
 import feedbackformsretriever.persistence.domain.SentAccount;
+import feedbackformsretriever.persistence.domain.SentCohort;
 import feedbackformsretriever.persistence.domain.SentFeedbackForm;
 import feedbackformsretriever.persistence.repository.MongoAccountRepo;
 
@@ -39,8 +40,13 @@ public class SentAccountRest {
 	    return repo.findById(id);
 	}
 	
+	@GetMapping("${path.getByCohortId}")
+	public Optional<SentAccount> findAccountByCohortId(@PathVariable Long id) {
+		return repo.findByCohortID(id);
+	}
+	
     @GetMapping("${path.getAccountByEmail}")
-    public SentAccount getAccountByEmail(@PathVariable String email) {
+    public Optional<SentAccount> getAccountByEmail(@PathVariable String email) {
     	return repo.findByEmail(email);
     }
    
