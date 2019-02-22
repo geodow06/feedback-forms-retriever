@@ -43,6 +43,4 @@ public class SentAccountRest {
     public SentAccount getAccountByEmail(@PathVariable String email) {
     	return repo.findByEmail(email);
     }
-   
-
 }
