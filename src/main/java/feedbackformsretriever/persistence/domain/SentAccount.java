@@ -16,7 +16,8 @@ public class SentAccount {
 		
 	}
 	
-	public SentAccount(Long cohortID, boolean admin, String firstName, String lastName, String email, String password, boolean flagged) {
+	public SentAccount(Long accountID, Long cohortID, boolean admin, String firstName, String lastName, String email, String password, boolean flagged) {
+		this.accountID = accountID;
 		this.cohortID = cohortID;
 		this.admin = admin;
 		this.firstName = firstName;

@@ -16,7 +16,8 @@ public class SentFeedbackForm {
 		
 	}
 	
-	public SentFeedbackForm(Long cohortID, Long accountID, int week, int score, String question1, String question2, String question3, String question4) {
+	public SentFeedbackForm(Long feedbackID, Long cohortID, Long accountID, int week, int score, String question1, String question2, String question3, String question4) {
+		this.feedbackID = feedbackID;
 		this.cohortID = cohortID;
 		this.accountID = accountID;
 		this.week = week;
