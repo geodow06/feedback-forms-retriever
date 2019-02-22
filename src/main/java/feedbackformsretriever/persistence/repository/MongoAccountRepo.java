@@ -20,20 +20,4 @@ public interface MongoAccountRepo  extends MongoRepository<SentAccount, String>{
     
     public  Optional <SentAccount> findByEmail(String email);
 
-
-    
-    
-    
-    
-    
-//	
-//	private Long accountID;
-//	private Long cohortID;
-//	private boolean admin;
-//	private String firstName;
-//	private String lastName;
-//	private String email;
-//	private String password;
-//	private boolean flagged;
-
 }
