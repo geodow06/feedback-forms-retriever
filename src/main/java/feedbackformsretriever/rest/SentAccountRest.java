@@ -22,7 +22,7 @@ import feedbackformsretriever.persistence.domain.SentFeedbackForm;
 import feedbackformsretriever.persistence.repository.MongoAccountRepo;
 
 @CrossOrigin
-@RequestMapping("${path.base}")
+@RequestMapping("${path.accounts}")
 @RestController
 public class SentAccountRest {
 	
@@ -34,18 +34,17 @@ public class SentAccountRest {
 		return repo.findAll();
 	}
 	
-	
-	@GetMapping("${path.getAccountById}")
-	public Optional<SentAccount> findAccountByID(@PathVariable String id) {
-	    return repo.findById(id);
+	@GetMapping("${path.getByAccountID}")
+	public Optional<SentAccount> getAccountById(@PathVariable Long id) {
+	    return repo.findByAccountID(id);
 	}
 	
-	@GetMapping("${path.getByCohortId}")
-	public List<SentAccount> findAccountByCohortId(@PathVariable Long id) {
+	@GetMapping("${path.getByCohortID}")
+	public List<SentAccount> getAccountsByCohortID(@PathVariable Long id) {
 		return repo.findAllByCohortID(id);
 	}
 	
-    @GetMapping("${path.getAccountByEmail}")
+    @GetMapping("${path.getByEmail}")
     public Optional<SentAccount> getAccountByEmail(@PathVariable String email) {
     	return repo.findByEmail(email);
     }

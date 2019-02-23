@@ -15,7 +15,7 @@ import feedbackformsretriever.persistence.domain.SentFeedbackForm;
 import feedbackformsretriever.persistence.repository.MongoFeedbackFormRepo;
 
 @CrossOrigin
-@RequestMapping("${path.base2}")
+@RequestMapping("${path.feedbackForm}")
 @RestController
 public class SentFeedbackFormRest {
 	
