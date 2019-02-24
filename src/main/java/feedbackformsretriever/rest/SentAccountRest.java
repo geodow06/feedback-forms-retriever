@@ -45,13 +45,14 @@ public class SentAccountRest {
     }
     
     @PutMapping("${path.updateAccount}")
-    public ResponseEntity<Object> updateAccountByObjId(@RequestBody SentAccount sentAccount, @PathVariable String id) {
+    public String updateAccountByObjId(@RequestBody SentAccount sentAccount, @PathVariable String id) {
         if(repo.existsById(id)){
         	sentAccount.set_id(id);
             repo.save(sentAccount);
-            return ResponseEntity.ok().build();
+    		return "{\"message\": \"account has been sucessfully updated\"}";
         }
-        return ResponseEntity.notFound().build();
+        
+		return "{\"message\": \"id does not exist\"}";
     }
     	
     
