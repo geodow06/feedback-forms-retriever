@@ -31,5 +31,12 @@ public class SentFeedbackFormRest {
     public Optional<SentFeedbackForm> getFeedbackFormByID(@PathVariable Long feedbackID) {
     	return repo.findByfeedbackID(feedbackID);
     }
+    
+    @GetMapping("${path.getFeedbackFormsAccountID}")
+    Collection<SentFeedbackForm> getAllFeedbackForms(@PathVariable Long accountID) {
+        return repo.findAllByAccountID(accountID);
+    } 
+
+    
 
 }
