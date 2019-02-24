@@ -1,7 +1,9 @@
 package feedbackformsretriever.persistence.domain;
 
-public class SentCohort {
+import org.bson.types.ObjectId;
 
+public class SentCohort {
+	
 	private Long cohortId;
 	private String cohortName;
 	private String trainerName;
@@ -59,6 +61,7 @@ public class SentCohort {
 	public void setCohortDescription(String cohortDescription) {
 		this.cohortDescription = cohortDescription;
 	}
+	
 
 }
 

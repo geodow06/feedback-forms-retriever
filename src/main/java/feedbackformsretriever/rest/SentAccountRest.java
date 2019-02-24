@@ -4,21 +4,16 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
-
-import org.bson.types.ObjectId;
-
 import feedbackformsretriever.persistence.domain.SentAccount;
-import feedbackformsretriever.persistence.domain.SentCohort;
-import feedbackformsretriever.persistence.domain.SentFeedbackForm;
 import feedbackformsretriever.persistence.repository.MongoAccountRepo;
 
 @CrossOrigin
@@ -48,4 +43,19 @@ public class SentAccountRest {
     public Optional<SentAccount> getAccountByEmail(@PathVariable String email) {
     	return repo.findByEmail(email);
     }
+    
+    @PutMapping("${path.updateAccount}")
+    public ResponseEntity<Object> updateAccountByObjId(@RequestBody SentAccount sentAccount, @PathVariable String id) {
+        if(repo.existsById(id)){
+        	sentAccount.set_id(id);
+            repo.save(sentAccount);
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+    	
+    
+
+    
+	
 }

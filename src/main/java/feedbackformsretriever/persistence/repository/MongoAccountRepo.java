@@ -3,7 +3,9 @@ package feedbackformsretriever.persistence.repository;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import feedbackformsretriever.persistence.domain.SentAccount;
 
@@ -14,10 +16,6 @@ public interface MongoAccountRepo  extends MongoRepository<SentAccount, String>{
 
     public Optional <SentAccount> findByAccountID(Long id);
     
-    public Optional <SentAccount> findByFirstName(String firstName);
-    
-    public Optional <SentAccount> findByLastName (String lastName);
-    
     public  Optional <SentAccount> findByEmail(String email);
-
+    
 }
