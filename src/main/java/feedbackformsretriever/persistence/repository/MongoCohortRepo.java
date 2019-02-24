@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import feedbackformsretriever.persistence.domain.SentCohort;
 
-public interface MongoCohortRepo extends MongoRepository<SentCohort, ObjectId> {
+public interface MongoCohortRepo extends MongoRepository<SentCohort, String> {
 	
     public Optional <SentCohort> findByCohortId(Long id);
     

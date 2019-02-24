@@ -1,6 +1,5 @@
 package feedbackformsretriever.persistence.domain;
 
-import org.bson.types.ObjectId;
 
 public class SentAccount {
 	private String _id;
