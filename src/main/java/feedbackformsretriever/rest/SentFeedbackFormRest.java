@@ -27,9 +27,9 @@ public class SentFeedbackFormRest {
         return repo.findAll();
     }
     
-//    @GetMapping("${path.getFeedbackFormByID}")
-//    public Optional<SentFeedbackForm> getFeedbackFormByID(@PathVariable String feedbackID) {
-//    	return repo.findById(feedbackID);
-//    }
+    @GetMapping("${path.getFeedbackFormByID}")
+    public Optional<SentFeedbackForm> getFeedbackFormByID(@PathVariable Long feedbackID) {
+    	return repo.findByfeedbackID(feedbackID);
+    }
 
 }
