@@ -22,7 +22,7 @@ public class SentCohortRest {
 	
 	@GetMapping("${path.getCohortbyID}")
 	public Optional<SentCohort> findCohortByID(@PathVariable Long id) {
-	    return repo.findByCohortId(id);
+	    return repo.findByCohortID(id);
 	}
 
     @GetMapping("${path.getCohorts}")
