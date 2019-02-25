@@ -101,15 +101,4 @@ public class SentAccount {
 		this.flagged = flagged;
 	}
 
-
-
-
-
-
-
-
-	
-
-	
-
 }
