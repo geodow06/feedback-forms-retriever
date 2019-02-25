@@ -4,7 +4,7 @@ import org.bson.types.ObjectId;
 
 public class SentCohort {
 	
-	private Long cohortId;
+	private Long cohortID;
 	private String cohortName;
 	private String trainerName;
 	private int week;
@@ -14,8 +14,8 @@ public class SentCohort {
 
 	}
 
-	public SentCohort(Long cohortId, String cohortName, String trainerName,int week, String cohortDescription) {
-		this.cohortId = cohortId;
+	public SentCohort(Long cohortID, String cohortName, String trainerName,int week, String cohortDescription) {
+		this.cohortID = cohortID;
 		this.cohortName = cohortName;
 		this.trainerName = trainerName;
 		this.week = week;
@@ -23,11 +23,11 @@ public class SentCohort {
 	}
 
 	public Long getCohortId() {
-		return cohortId;
+		return cohortID;
 	}
 
-	public void setCohortId(Long cohortId) {
-		this.cohortId = cohortId;
+	public void setCohortId(Long cohortID) {
+		this.cohortID = cohortID;
 	}
 
 	public String getCohortName() {
