@@ -9,7 +9,7 @@ import feedbackformsretriever.persistence.domain.SentCohort;
 
 public interface MongoCohortRepo extends MongoRepository<SentCohort, String> {
 	
-    public Optional <SentCohort> findByCohortId(Long id);
+    public Optional <SentCohort> findByCohortID(Long id);
     
 }
 	
