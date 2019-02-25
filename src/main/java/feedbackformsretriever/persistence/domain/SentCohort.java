@@ -61,7 +61,5 @@ public class SentCohort {
 	public void setCohortDescription(String cohortDescription) {
 		this.cohortDescription = cohortDescription;
 	}
-	
 
 }
-
