@@ -102,6 +102,4 @@ public class SentFeedbackForm {
 		this.question4 = question4;
 	}
 	
-
-
 }
