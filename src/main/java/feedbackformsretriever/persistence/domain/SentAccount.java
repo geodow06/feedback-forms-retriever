@@ -2,7 +2,7 @@ package feedbackformsretriever.persistence.domain;
 
 
 public class SentAccount {
-	
+	private String _id;
 	private Long accountID;
 	private Long cohortID;
 	private boolean admin;
@@ -16,7 +16,7 @@ public class SentAccount {
 		
 	}
 	
-	public SentAccount(Long accountID, Long cohortID, boolean admin, String firstName, String lastName, String email, String password, boolean flagged) {
+	public SentAccount( Long accountID, Long cohortID, boolean admin, String firstName, String lastName, String email, String password, boolean flagged) {
 		this.accountID = accountID;
 		this.cohortID = cohortID;
 		this.admin = admin;
@@ -25,6 +25,15 @@ public class SentAccount {
 		this.email = email;
 		this.password = password;
 		this.flagged = flagged;
+	}
+	
+
+	public String get_id() {
+		return _id;
+	}
+
+	public void set_id(String _id) {
+		this._id = _id;
 	}
 
 	public Long getAccountID() {

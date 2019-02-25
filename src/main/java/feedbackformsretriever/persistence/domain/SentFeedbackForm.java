@@ -1,5 +1,7 @@
 package feedbackformsretriever.persistence.domain;
 
+import org.bson.types.ObjectId;
+
 public class SentFeedbackForm {
 	
 	private Long feedbackID;
@@ -99,6 +101,5 @@ public class SentFeedbackForm {
 	public void setQuestion4(String question4) {
 		this.question4 = question4;
 	}
-
-
+	
 }

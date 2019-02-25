@@ -13,14 +13,14 @@ import feedbackformsretriever.persistence.domain.SentCohort;
 import feedbackformsretriever.persistence.repository.MongoCohortRepo;
 
 @CrossOrigin
-@RequestMapping("${path.base3}")
+@RequestMapping("${path.cohorts}")
 @RestController
 public class SentCohortRest {
 	
 	@Autowired
 	private MongoCohortRepo repo;
 	
-	@GetMapping("${path.getCohortbyId}")
+	@GetMapping("${path.getCohortbyID}")
 	public Optional<SentCohort> findCohortByID(@PathVariable Long id) {
 	    return repo.findByCohortId(id);
 	}
@@ -29,10 +29,5 @@ public class SentCohortRest {
     public Collection<SentCohort> getAllCohorts() {
         return repo.findAll();
     }
-    
-
-
-    
-    
 
 }

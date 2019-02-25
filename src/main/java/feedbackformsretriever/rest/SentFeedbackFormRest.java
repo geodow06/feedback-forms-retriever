@@ -15,7 +15,7 @@ import feedbackformsretriever.persistence.domain.SentFeedbackForm;
 import feedbackformsretriever.persistence.repository.MongoFeedbackFormRepo;
 
 @CrossOrigin
-@RequestMapping("${path.base2}")
+@RequestMapping("${path.feedbackForm}")
 @RestController
 public class SentFeedbackFormRest {
 	
@@ -28,8 +28,15 @@ public class SentFeedbackFormRest {
     }
     
     @GetMapping("${path.getFeedbackFormByID}")
-    public Optional<SentFeedbackForm> getFeedbackFormByID(@PathVariable String feedbackID) {
-    	return repo.findById(feedbackID);
+    public Optional<SentFeedbackForm> getFeedbackFormByID(@PathVariable Long feedbackID) {
+    	return repo.findByfeedbackID(feedbackID);
     }
+    
+    @GetMapping("${path.getFeedbackFormsAccountID}")
+    Collection<SentFeedbackForm> getAllFeedbackForms(@PathVariable Long accountID) {
+        return repo.findAllByAccountID(accountID);
+    } 
+
+    
 
 }
