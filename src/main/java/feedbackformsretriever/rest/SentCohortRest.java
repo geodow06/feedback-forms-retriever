@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,5 +30,15 @@ public class SentCohortRest {
     public Collection<SentCohort> getAllCohorts() {
         return repo.findAll();
     }
+    
+//    @DeleteMapping("${path.deleteByCohortName}")
+//    public Long deleteByCohortName(@PathVariable String name) {
+//        if(repo.findByEmail(email) != null){
+//           
+//            return  repo.deleteByEmail(email);
+//        }
+//        return -1L;
+//    }
+    
 
 }
