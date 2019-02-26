@@ -12,10 +12,16 @@ import feedbackformsretriever.persistence.domain.SentAccount;
 @Repository
 public interface MongoAccountRepo  extends MongoRepository<SentAccount, String>{
 	
-    public List<SentAccount> findAllByCohortID(Long id);
+     List<SentAccount> findAllByCohortID(Long id);
 
-    public Optional <SentAccount> findByAccountID(Long id);
+     Optional <SentAccount> findByAccountID(Long id);
     
-    public  Optional <SentAccount> findByEmail(String email);
+     Optional <SentAccount> findByEmail(String email);
+    
+     Long deleteByEmail(String email);
+     
+//     List<ResponseEntity<Object>> removeByEmail(String email);
+
+
     
 }
