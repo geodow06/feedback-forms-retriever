@@ -17,28 +17,23 @@ import feedbackformsretriever.persistence.repository.MongoCohortRepo;
 @RequestMapping("${path.cohorts}")
 @RestController
 public class SentCohortRest {
-	
+
 	@Autowired
 	private MongoCohortRepo repo;
-	
+
 	@GetMapping("${path.getCohortbyID}")
 	public Optional<SentCohort> findCohortByID(@PathVariable Long id) {
-	    return repo.findByCohortID(id);
+		return repo.findByCohortID(id);
 	}
 
-    @GetMapping("${path.getCohorts}")
-    public Collection<SentCohort> getAllCohorts() {
-        return repo.findAll();
-    }
-    
-//    @DeleteMapping("${path.deleteByCohortName}")
-//    public Long deleteByCohortName(@PathVariable String name) {
-//        if(repo.findByEmail(email) != null){
-//           
-//            return  repo.deleteByEmail(email);
-//        }
-//        return -1L;
-//    }
-    
+	@GetMapping("${path.getCohorts}")
+	public Collection<SentCohort> getAllCohorts() {
+		return repo.findAll();
+	}
+
+	@DeleteMapping("${path.deleteByCohortName}")
+	public Long deleteByCohortName(@PathVariable String cohortName) {
+		return repo.deleteByCohortName(cohortName);
+	}
 
 }

@@ -16,7 +16,7 @@ public interface MongoFeedbackFormRepo extends MongoRepository<SentFeedbackForm,
 	
 	List<SentFeedbackForm> findAllByAccountID(Long accountID);
 	
-    ResponseEntity<SentFeedbackForm> deleteAllByAccountID(Long id);
+    Long deleteAllByAccountID(Long id);
     
     
     
