@@ -4,6 +4,9 @@ import java.util.Date;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
@@ -54,27 +57,35 @@ public class SentCohortRest {
 	public Long weekUpdate(@PathVariable Long cohortID) throws ParseException {
 		SentCohort sentCohort = repo.findByCohortID(cohortID);
 
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		Date currentDate = simpleDateFormat.parse(getCurrentDate());
-		Date dateCreated = simpleDateFormat.parse(sentCohort.getCreatedOn());
+		String currentDate = getCurrentDate();
+		String dateCreated = sentCohort.getCreatedOn();
 
-		long diff = getDateDiff(dateCreated, currentDate, TimeUnit.DAYS);
+		long diff = getDateDiff(dateCreated, currentDate);
 
 		return weekIncrement(sentCohort, (int) diff, cohortID);
 	}
 
-	private String getCurrentDate() {
-		return new Timestamp(System.currentTimeMillis()).toString().substring(0, 10);
+	private long getDateDiff(String dateCreated, String currentDate) {
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		LocalDate datel = LocalDate.parse(currentDate, formatter);
+		LocalDate date2 = LocalDate.parse(dateCreated, formatter);
+		long daysBetween = ChronoUnit.DAYS.between(datel, date2);
+		if (daysBetween > 0) {
+			return daysBetween;
+		} else {
+			return (daysBetween * -1);
+		}
 	}
 
-	private long getDateDiff(Date currentDate, Date dateCreated, TimeUnit timeUnit) {
-		Long diffInMillies = dateCreated.getTime() - currentDate.getTime();
-		return timeUnit.convert(diffInMillies, TimeUnit.DAYS);
+	private String getCurrentDate() {
+		return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
 	}
 
 	private long weekIncrement(SentCohort sentCohort, int diff, Long cohortID) {
-		repo.deleteByCohortID(cohortID);
 		sentCohort.setWeek(diff / week + 1);
+		repo.deleteByCohortID(cohortID);
+
 		repo.save(sentCohort);
 		return (long) sentCohort.getWeek();
 	}
