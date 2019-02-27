@@ -19,9 +19,5 @@ public interface MongoAccountRepo  extends MongoRepository<SentAccount, String>{
      Optional <SentAccount> findByEmail(String email);
     
      Long deleteByEmail(String email);
-     
-//     List<ResponseEntity<Object>> removeByEmail(String email);
-
-
     
 }
